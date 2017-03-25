@@ -9,3 +9,14 @@ To watch a list of files, use [filelist](https://github.com/scarface382/filelist
 `filelist | grep -v -E "exe|git|txt" | filewatch -c make -r demo.exe`
 
 This command will remove exe, git, and txt files from the list and the rest of the files will be watched by `filewatch`
+
+## Example
+
+### Entering files to watch
+![Alt text](examples/3.png?raw=true "file watch")
+
+### Error in the code, gcc error message
+![Alt text](examples/4.png?raw=true "file watch")
+
+### Issue fixed, make is called by filewatch automatically
+![Alt text](examples/5.png?raw=true "file watch")
