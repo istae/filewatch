@@ -57,12 +57,16 @@ static void getnewfnames(char** fn, int* c, int* n)
 
 static void systemcall(char* sc, char* pname, char* run)
 {
-    int ret = system(sc);
     if (run != NULL) {
+        clock_t start = clock(), end;
+        int ret = system(sc);
+        end = clock();
         printf("------------------------------------------------------\n");
-        printf("%s: %s returned %d\n\n", pname, run, ret);
+        printf("%s: %s returned %d in %.2lf(s)\n\n", pname, run, ret, (double)(end - start)/CLOCKS_PER_SEC);
         fflush(stdout);
     }
+    else
+        system(sc);
 }
 
 int main(int argc, char** argv) {
