@@ -94,7 +94,7 @@ int main(int argc, char** argv) {
         errormessage(pname);
         return 1;
     }
-    printf("Files to watch:\n~ ");
+    printf("Files to watch:\n");
 
     // get files to watch from stdin, max 100 files, small project
     char* fnames[MAXFILES];
@@ -105,8 +105,8 @@ int main(int argc, char** argv) {
 
     // get file list
     int n = 0;
-    while (getline(fnames[n++], stdin))
-        ;
+    do  printf("~ ");
+    while (getline(fnames[n++], stdin));
     --n;
 
     // build array that holds original mod time for each file
