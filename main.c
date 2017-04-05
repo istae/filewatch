@@ -61,7 +61,7 @@ static void systemcall(char* sc, char* pname, char* run)
         clock_t start = clock(), end;
         int ret = system(sc);
         end = clock();
-        printf("------------------------------------------------------\n");
+        printf("\n------------------------------------------------------\n");
         printf("%s: %s returned %d in %.2lf(s)\n\n", pname, run, ret, (double)(end - start)/CLOCKS_PER_SEC);
         fflush(stdout);
     }
