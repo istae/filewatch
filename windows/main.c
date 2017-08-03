@@ -24,7 +24,7 @@ fl | grep -v -E 'exe|txt' | fw -c make -r demo >log.txt 2>&1
 typedef struct {
     char* pname;
     char* runcall;
-    char* syscall;
+    char* compcall;
 } Params;
 
 Params p;
@@ -96,17 +96,17 @@ int main(int argc, char** argv)
     }
 
     // create string for system call
-    char syscall[100];
-    sprintf(syscall, "cls && %s", compile);
+    char compcall[100];
+    sprintf(compcall, "cls && %s", compile);
 
-    // create kill syscall
+    // create kill compcall
     if (run)
         sprintf(kill,"taskkill /im %s /f", run);
 
     // detect file changes
     p.pname = pname;
     p.runcall = run;
-    p.syscall = syscall;
+    p.compcall = compcall;
 
     is_running = 0;
     run_mutex = CreateMutex(0, FALSE, 0);
@@ -130,7 +130,7 @@ int main(int argc, char** argv)
             _beginthread(system_call, 0, 0);
         }
     }
-    
+
     CloseHandle(run_mutex);
 }
 
@@ -164,6 +164,8 @@ void input()
 
 void system_call()
 {
+    system(p.compcall);
+
     if (p.runcall) {
 
         WaitForSingleObject(run_mutex, INFINITE);
@@ -171,19 +173,16 @@ void system_call()
         ReleaseMutex(run_mutex);
 
         clock_t start = clock(), end;
-        system(p.syscall);
         int ret = system(p.runcall);
         end = clock();
-        printf("\n------------------------------------------------------\n");
+        printf("\n\n------------------------------------------------------\n");
         printf("%s: %s returned %d in %.2lf(s)\n\n", p.pname, p.runcall, ret, (float)(end - start)/CLOCKS_PER_SEC);
         fflush(stdout);
-    }
-    else
-        system(p.syscall);
 
-    WaitForSingleObject(run_mutex, INFINITE);
-    is_running = 0;
-    ReleaseMutex(run_mutex);
+        WaitForSingleObject(run_mutex, INFINITE);
+        is_running = 0;
+        ReleaseMutex(run_mutex);
+    }
 }
 
 int _getline(FILE* f, char* b, int max)

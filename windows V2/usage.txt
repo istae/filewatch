@@ -1,0 +1,13 @@
+DO NOT WATCH EXECUTIBLES
+Usage: filewatch %s -c 'compile command
+
+  KEYS
+    'q'   - kill filewatch
+    'ESC' - if -r is provided, kill the -r program
+    'r'   - restart -r program
+
+  OPTIONAL
+    -r  - 'program to run after compilation
+
+  TIP
+    use ' fl | grep -v ' to filter out unwanted files\n \
