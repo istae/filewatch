@@ -3,7 +3,7 @@ filewatch monitors for any changes in a directory and recompiles code automatica
 It is a tool for helping developers with compilation of small projects.
 
 ## Example
-
+`filewatch <dirname>`
 ### Entering files to watch
 ![Alt text](examples/demo.png?raw=true "file watch")
 
