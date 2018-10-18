@@ -4,6 +4,8 @@ It is a tool for helping developers with compilation of small projects.
 
 ## Example
 `filewatch <dirname>`
+or
+`filewatch`
 ### Entering files to watch
 ![Alt text](examples/demo.png?raw=true "file watch")
 
