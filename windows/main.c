@@ -76,7 +76,6 @@ int main(int argc, char** argv)
     _beginthread(input, 0, 0);
     _beginthread(sys_call, 0, 0);
 
-    printf("n: %d \n", n);
     while (1) {
         Sleep(1000);
         int mod = 0;
