@@ -7,7 +7,7 @@ This command will remove exe, git, and txt files from the list and the rest of t
 ## Example
 
 ### Entering files to watch
-![Alt text](examples/3.png?raw=true "file watch")
+![Alt text](examples/demo.png?raw=true "file watch")
 
 ### Error in the source code being watched
 ![Alt text](examples/4.png?raw=true "file watch")
