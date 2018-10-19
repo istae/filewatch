@@ -9,8 +9,8 @@ or
 ### Entering files to watch
 ![Alt text](examples/demo.png?raw=true "file watch")
 
-### Error in the source code being watched
+### Error in the source code file being watched
 ![Alt text](examples/4.png?raw=true "file watch")
 
-### Issue fixed, make is called by filewatch automatically
+### After fixing and saving, make is called by filewatch automatically
 ![Alt text](examples/5.png?raw=true "file watch")
